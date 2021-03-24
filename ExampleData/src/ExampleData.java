@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 /**
  * Test Data for Lbs_mail BLOB application 
  * @author elianeiselt
