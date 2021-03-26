@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * Test Data for Lbs_mail BLOB application 
@@ -13,15 +19,34 @@ import java.sql.SQLException;
  */
 public class ExampleData {
 	
-	private final String url = "jdbc:mysql://localhost:3306/"; 	
-	private String user = "root";
-	private String password = "Legolas17";
-	private String db = "mail"; 		
-	private String command;
+	private  static final String url = "jdbc:mysql://localhost:3306/"; 	
+	private static String user = "root";
+	private static String password = "Legolas17";
+	private static String db = "mail"; 		
+	private static String command;
 	
 	
 	public static void main(String args[])  {	
 		
+		// try and catch db connection 
+				try {
+					
+					Class.forName("com.mysql.jdbc.Driver").newInstance();
+					
+					// db connection
+					Connection connection = DriverManager.getConnection(getUrl(), getUser(), getPassword());
+					System.out.println("Verbindung zur DB hergestellt!");
+					
+					// choosing table
+					Statement statement = connection.createStatement();
+					statement.execute("USE" + " " + getDb());
+					System.out.println("Auswahl der DB erfolgt!");
+					
+				} catch (Exception e) {
+					
+					System.out.println("Fehler in der DBConnection");
+				
+				}
 	}
 	
 	// convert pdf to binary
@@ -31,23 +56,23 @@ public class ExampleData {
 	}
 	
 	//getter / setter
-	public String getUrl() {
+	public static String getUrl() {
 		return url;
 	}
 
-	public String getUser() {
+	public static String getUser() {
 		return user;
 	}
 
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 
-	public String getDb() {
+	public static String getDb() {
 		return db;
 	}
 
-	public String getCommand() {
+	public static String getCommand() {
 		return command;
 	}
 
