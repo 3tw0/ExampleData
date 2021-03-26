@@ -42,11 +42,23 @@ public class ExampleData {
 					statement.execute("USE" + " " + getDb());
 					System.out.println("Auswahl der DB erfolgt!");
 					
+					// 
+					Statement sql = connection.createStatement();
+		            //String data = "INSERT INTO lbs_mail"
+		            //				+ " (last_name, first_name, email)"
+		            //				+ " VALUES ('Brown', 'David', 'david.brown@foo.com')";
+
+		            //sql.executeUpdate(data);
+
+		            System.out.println("Insert complete");
+					
 				} catch (Exception e) {
 					
 					System.out.println("Fehler in der DBConnection");
 				
 				}
+				
+				
 	}
 	
 	// convert pdf to binary
