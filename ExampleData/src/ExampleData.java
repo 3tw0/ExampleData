@@ -54,7 +54,7 @@ public class ExampleData {
 					
 				} catch (Exception e) {
 					
-					System.out.println("Fehler in der DBConnection");
+					System.out.println(e.getMessage());
 				
 				}
 				
