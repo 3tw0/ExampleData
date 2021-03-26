@@ -14,7 +14,7 @@ import java.sql.Statement;
 
 
 /**
- * Test Data for Lbs_mail BLOB application.
+ * Test Data for Lbs_mail BLOB application..
  * @author elianeiselt
  *
  */
